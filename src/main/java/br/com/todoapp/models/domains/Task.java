@@ -1,9 +1,13 @@
 package br.com.todoapp.models.domains;
 
+import javax.persistence.*;
 import java.util.Calendar;
 
+@Entity
 public class Task {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String label;
     private String description;

@@ -12,17 +12,30 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    private String username;
     private String email;
     private String password;
     private Permission permission;
 
 
 
-    public User(int id, String email, String password, String permission) {
+    public User(int id, String username, String email, String password, String permission) {
         this.id = id;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.permission = Permission.valueOf(permission);
+    }
+
+    public User() {
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getId() {
