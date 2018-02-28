@@ -16,7 +16,7 @@ import javax.servlet.ServletContext;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "br.com.todoapp.controllers")
+@ComponentScan(basePackages = "br.com.todoapp")
 @Profile("DEV")
 public class Bootstrap extends WebMvcConfigurerAdapter {
 

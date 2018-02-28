@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.Calendar;
 
 @Entity
+@Table(name="todoapp_task")
 public class Task {
 
     @Id
@@ -12,6 +13,9 @@ public class Task {
     private String label;
     private String description;
     private Calendar created  = Calendar.getInstance();
+
+    @ManyToOne
+    private User creator;
 
 
     public int getId() {
@@ -44,5 +48,13 @@ public class Task {
 
     public void setCreated(Calendar created) {
         this.created = created;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
     }
 }

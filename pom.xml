@@ -25,6 +25,25 @@
             <version>${servlet-version}</version>
         </dependency>
 
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--<artifactId>jackson-core</artifactId>-->
+            <!--<version>${jackson-version}</version>-->
+        <!--</dependency>-->
+
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${validation-api}</version>
+        </dependency>
+
         <!--SECURITY-->
 
         <dependency>
@@ -94,6 +113,9 @@
         <spring-version>4.3.12.RELEASE</spring-version>
         <spring-security-version>4.2.3.RELEASE</spring-security-version>
         <spring-data-version>1.10.1.RELEASE</spring-data-version>
+
+        <jackson-version>2.9.0</jackson-version>
+        <validation-api>1.1.0.Final</validation-api>
 
         <hibernate-version>5.1.0.Final</hibernate-version>
         <jpa-version>1.0.0.Final</jpa-version>

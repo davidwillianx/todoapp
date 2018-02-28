@@ -1,11 +1,12 @@
 package br.com.todoapp.models.domains;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name = "todoapp_user")
 public class User {
 
     @Id
@@ -14,8 +15,14 @@ public class User {
 
     private String username;
     private String email;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
     private Permission permission;
+
+    @OneToMany
+    private List<Task> tasks;
 
 
 
@@ -68,5 +75,13 @@ public class User {
 
     public void setPermission(Permission permission) {
         this.permission = permission;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }

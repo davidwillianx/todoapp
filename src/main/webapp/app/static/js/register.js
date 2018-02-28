@@ -3,7 +3,9 @@
 var Register = (function(){
 
 var user = {};
-var apiURL = '/user/register';
+var apiURL = '/api/users/register';
+
+var $form;
 
 
 function setUp(){
@@ -16,15 +18,18 @@ function userRegister(form){
 
    form.preventDefault();
 
+   $form = $(this);
+
    user = parseFormElements();
 
 
 
    var request = $.ajax({
         url: apiURL,
+        contentType:'application/json',
         dataType: 'json',
         method: 'POST',
-        data: user
+        data:  JSON.stringify(user)
     });
 
    request.done(registrationSuccess);
@@ -33,15 +38,34 @@ function userRegister(form){
 
 
 function registrationFail(reason){
-    console.log('we got problems');
-    console.log(reason);
+    $.toast({
+        heading: 'Error',
+        text: 'Falha ao realizar registro',
+        hideAfter: 5000,
+        icon: 'error'
+    });
 }
 
 function  registrationSuccess(successMessage) {
 
-    console.log('We got transaction success');
-    console.log(successMessage);
+    clearRegistrationForm();
 
+    $.toast({
+        heading: 'Success',
+        text: 'Registration success!, <a href="/users/access/signin">click here</a> and start to organize yourself!',
+        hideAfter: 9000,
+        icon: 'success'
+    });
+
+}
+
+function clearRegistrationForm(){
+
+    $form.find('input[type=text], input[type=password]')
+         .each(function () {
+             console.log('Elelement detected', $(this));
+             $(this).val('');
+         });
 }
 
 function parseFormElements(){
@@ -52,13 +76,11 @@ function parseFormElements(){
     user.password = $('#password').val();
 
     return user;
-
 }
 
 return {init: setUp};
 
 })();
-
 
 
 $(document).ready(Register.init());
