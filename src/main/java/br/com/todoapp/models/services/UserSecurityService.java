@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@Service
+@Service("AuthDetailsService")
 public class UserSecurityService implements UserDetailsService {
 
     @Autowired
@@ -23,6 +23,9 @@ public class UserSecurityService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
         User userFound = userService.searchByEmail(email);
+
+        System.out.println("User Found");
+        System.out.println(userFound);
 
         if(userFound == null) throw  new UsernameNotFoundException("Usuario nao econtrado");
 

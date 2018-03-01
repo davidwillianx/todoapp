@@ -119,7 +119,7 @@
 
         <hibernate-version>5.1.0.Final</hibernate-version>
         <jpa-version>1.0.0.Final</jpa-version>
-        <jdbc-postgresql-version>42.2.1</jdbc-postgresql-version>
+        <jdbc-postgresql-version>42.2.0</jdbc-postgresql-version>
 
         <servlet-version>4.0.0</servlet-version>
 

@@ -1,6 +1,7 @@
 package br.com.todoapp.controllers.webviews;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -9,19 +10,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/users/")
 public class UserController {
 
-    private ModelAndView view;
-
-
-    @RequestMapping("/access/{accessAction}")
-    public ModelAndView accsss(@PathVariable String accessAction){
-
-        view  = new ModelAndView("users/access");
-        view.addObject("action", accessAction);
-
-        return view;
+    @GetMapping("/access/signin")
+    public String accsss(){
+        return "/users/access";
     }
 
-    @RequestMapping("/access/register")
+    @GetMapping("/access/register")
     public String register() {
         return "users/register";
     }
