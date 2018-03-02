@@ -14,10 +14,10 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import javax.servlet.ServletContext;
 
 
+@Profile("DEV")
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "br.com.todoapp")
-@Profile("DEV")
 public class Bootstrap extends WebMvcConfigurerAdapter {
 
     @Autowired

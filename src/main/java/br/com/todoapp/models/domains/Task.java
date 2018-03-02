@@ -5,26 +5,14 @@ import java.util.Calendar;
 
 @Entity
 @Table(name="todoapp_task")
-public class Task {
+public class Task extends ModelDomain {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
     private String label;
     private String description;
     private Calendar created  = Calendar.getInstance();
 
     @ManyToOne
     private User creator;
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getLabel() {
         return label;
