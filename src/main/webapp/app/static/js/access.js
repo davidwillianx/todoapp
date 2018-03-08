@@ -23,9 +23,9 @@
            var accessRequest =  $.ajax({
                 url: apiUrl,
                 method: 'POST',
-                contentType: 'application/json',
-                dataType: 'json',
-                data: JSON.stringify(user)
+                // contentType: '',
+                dataType: 'x-www-form-urlencoded',
+                data: user
             });
 
 

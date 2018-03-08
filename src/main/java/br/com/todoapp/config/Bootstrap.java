@@ -23,6 +23,7 @@ public class Bootstrap extends WebMvcConfigurerAdapter {
     @Autowired
     private ServletContext servletContext;
 
+
     @Bean
     @Description("Thymeleaf Resolver")
     public ServletContextTemplateResolver templateResolver(){

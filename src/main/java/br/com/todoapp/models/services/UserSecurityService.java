@@ -24,6 +24,7 @@ public class UserSecurityService implements UserDetailsService {
 
         User userFound = userService.searchByEmail(email);
 
+
         if(userFound == null) throw  new UsernameNotFoundException("Usuario nao econtrado");
 
         return new org.springframework.security.core.userdetails.User(userFound.getEmail(), userFound.getPassword(), getAuthorities(userFound.getPermission().toString()));
