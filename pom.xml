@@ -10,6 +10,32 @@
 
     <packaging>war</packaging>
 
+    <properties>
+        <spring-version>4.3.12.RELEASE</spring-version>
+
+        <spring-security-version>4.1.3.RELEASE</spring-security-version>
+
+        <spring-data-version>1.10.1.RELEASE</spring-data-version>
+
+        <jackson-version>2.9.0</jackson-version>
+        <validation-api>1.1.0.Final</validation-api>
+
+        <hibernate-version>5.1.0.Final</hibernate-version>
+        <jpa-version>1.0.0.Final</jpa-version>
+
+        <jdbc-postgresql-version>42.2.0</jdbc-postgresql-version>
+        <jdbc-mysql-version>6.0.6</jdbc-mysql-version>
+
+        <servlet-version>4.0.0</servlet-version>
+
+        <template-thymeleaf-version>3.0.9.RELEASE</template-thymeleaf-version>
+
+
+        <!--<maven.compiler.source>1.8</maven.compiler.source>-->
+        <!--<maven.compiler.target>1.8</maven.compiler.target>-->
+
+    </properties>
+
 
     <dependencies>
 
@@ -104,30 +130,24 @@
         </dependency>
 
         <!--TEMPLATE-->
-
     </dependencies>
 
-    <properties>
-        <spring-version>4.3.12.RELEASE</spring-version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
 
-        <spring-security-version>4.1.3.RELEASE</spring-security-version>
 
-        <spring-data-version>1.10.1.RELEASE</spring-data-version>
+            </plugin>
 
-        <jackson-version>2.9.0</jackson-version>
-        <validation-api>1.1.0.Final</validation-api>
-
-        <hibernate-version>5.1.0.Final</hibernate-version>
-        <jpa-version>1.0.0.Final</jpa-version>
-
-        <jdbc-postgresql-version>42.2.0</jdbc-postgresql-version>
-        <jdbc-mysql-version>6.0.6</jdbc-mysql-version>
-
-        <servlet-version>4.0.0</servlet-version>
-
-        <template-thymeleaf-version>3.0.9.RELEASE</template-thymeleaf-version>
-
-    </properties>
+        </plugins>
+    </build>
 
 
 </project>

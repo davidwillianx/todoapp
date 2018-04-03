@@ -10,6 +10,6 @@ public class UserDashboardController {
 
     @GetMapping
     public String dash(){
-        return "something beautiful";
+        return "users/dashboard";
     }
 }

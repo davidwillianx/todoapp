@@ -1,5 +1,6 @@
 package br.com.todoapp.models.services;
 
+import br.com.todoapp.models.converters.UserAuth;
 import br.com.todoapp.models.domains.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -27,7 +28,18 @@ public class UserSecurityService implements UserDetailsService {
 
         if(userFound == null) throw  new UsernameNotFoundException("Usuario nao econtrado");
 
-        return new org.springframework.security.core.userdetails.User(userFound.getEmail(), userFound.getPassword(), getAuthorities(userFound.getPermission().toString()));
+        return new UserAuth(
+                userFound.getEmail(),
+                userFound.getPassword(),
+                true,
+                true,
+                true,
+                true,
+                getAuthorities(userFound.getPermission().toString()),
+                userFound
+        );
+
+
     }
 
     private Collection<? extends  GrantedAuthority> getAuthorities(String role){

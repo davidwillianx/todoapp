@@ -12,7 +12,7 @@ public class UserController {
 
     @GetMapping("/access/signin")
     public String accsss(){
-        return "/users/access";
+        return "users/access";
     }
 
     @GetMapping("/access/register")

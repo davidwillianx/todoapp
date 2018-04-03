@@ -23,9 +23,8 @@
            var accessRequest =  $.ajax({
                 url: apiUrl,
                 method: 'POST',
-                // contentType: '',
-                dataType: 'x-www-form-urlencoded',
-                data: user
+                data: user,
+                converters: 'text json'
             });
 
 
@@ -39,20 +38,18 @@
             $.toast({
                 heading: 'Success',
                 text: 'Access permited! In a few seconds you\'ll be redirected',
-                hideAfter: 9000,
+                hideAfter: 7000,
                 icon: 'success'
             });
 
             setTimeout(function(){
                 globals.location.href = '/users/dashboard';
-            }, 9000);
+            }, 7000);
 
         }
 
         function failLogin(errorReason) {
-            console.log('Tracking failure processe condition');
-            console.log(errorReason);
-            console.log('End of tracking');
+
             $.toast({
                 heading: 'Error',
                 text: 'Username or password incorrect. Are you sure that have an account? <a href="/access/users/register">Create account</a>',

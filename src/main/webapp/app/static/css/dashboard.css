@@ -1,0 +1,13 @@
+.panel {
+    color:#666666;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.panel-content {
+    border: none;
+    -webkit-box-shadow: 0px 0px 49px 14px rgba(188,190,194,0.39) !important;
+    -moz-box-shadow: 0px 0px 49px 14px rgba(188,190,194,0.39);
+    box-shadow: 0px 0px 49px 14px rgba(188,190,194,0.39);
+}
+
+

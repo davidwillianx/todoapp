@@ -1,5 +1,6 @@
 package br.com.todoapp.config;
 
+import br.com.todoapp.util.AuthSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -44,8 +45,9 @@ public class Security extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .usernameParameter("email")
                     .loginPage("/users/access/signin")
+                    .defaultSuccessUrl("/users/dashboard")
                 .permitAll()
-                .defaultSuccessUrl("/users/dashboard")
+                .successHandler( new AuthSuccessHandler())
            .and()
                 .logout()
                 .logoutUrl("/users/access/logout")
